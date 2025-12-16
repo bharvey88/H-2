@@ -806,10 +806,8 @@ script:
           brightness: 60%
           id: logo_light
           effect: "RainbowWave"
-      - wifi.disable:
       - rtttl.play:
           rtttl: !lambda 'return id(song_1).state;'
-      - wifi.enable:
       - delay: 30s
       - light.turn_off: rgb_light
       - light.turn_off: logo_light
@@ -825,10 +823,8 @@ script:
           brightness: 80%
           id: logo_light
           effect: "TwinklingRed"
-      - wifi.disable:          
       - rtttl.play:
           rtttl: !lambda 'return id(song_2).state;'
-      - wifi.enable:          
       - delay: 30s
       - light.turn_off: rgb_light
       - light.turn_off: logo_light
@@ -844,7 +840,6 @@ script:
           brightness: 60%
           id: logo_light
           effect: "RedGreen"
-      - wifi.disable:          
       - rtttl.play:
           rtttl: !lambda 'return id(song_3).state;'
       - delay: 30s
@@ -862,10 +857,8 @@ script:
           brightness: 80%
           id: logo_light
           effect: "TwinklingBlues"
-      - wifi.disable:          
       - rtttl.play:
           rtttl: !lambda 'return id(song_4).state;'
-      - wifi.enable:          
       - delay: 30s
       - light.turn_off: rgb_light
       - light.turn_off: logo_light
@@ -881,10 +874,8 @@ script:
           brightness: 60%
           id: logo_light
           effect: "Sandstorm"
-      - wifi.disable:          
       - rtttl.play:
           rtttl: Sandstorm:d=16,o=6,b=85:e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e, 8e,e,a,e,e,e,e,8e,e,d,e,e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e,8e,e, a,e,e,e,e,8e,e,d,e,e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e,8e,e,a,e, e,e,e,8e,e,d,e
-      - wifi.enable:          
       - delay: 30s
       - light.turn_off: rgb_light
       - light.turn_off: logo_light
