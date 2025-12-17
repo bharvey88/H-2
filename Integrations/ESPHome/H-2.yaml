@@ -249,16 +249,33 @@ script:
           else: 
             - deep_sleep.enter:
                 id: deep_sleep_1
+                
   - id: play_song_1
     then:
-      - light.turn_on:
-          brightness: 80%
-          id: rgb_light
-          effect: "RainbowWave"
-      - light.turn_on:
-          brightness: 60%
-          id: logo_light
-          effect: "RainbowWave"
+      - if:
+          condition:
+            lambda: 'return !id(rgb_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: rgb_light
+                brightness: 90%
+                effect: "RainbowWave"
+          else:
+            - light.turn_on:
+                id: rgb_light
+                effect: "RainbowWave"
+      - if:
+          condition:
+            lambda: 'return !id(logo_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: logo_light
+                brightness: 70%
+                effect: "RainbowWave"
+          else:
+            - light.turn_on:
+                id: logo_light
+                effect: "RainbowWave"
       - wifi.disable: 
       - rtttl.play:
           rtttl: !lambda 'return id(song_1).state;'
@@ -270,14 +287,30 @@ script:
 
   - id: play_song_2
     then:
-      - light.turn_on:
-          brightness: 80%
-          id: rgb_light
-          effect: "TwinklingWhite"
-      - light.turn_on:
-          brightness: 80%
-          id: logo_light
-          effect: "TwinklingRed"
+      - if:
+          condition:
+            lambda: 'return !id(rgb_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: rgb_light
+                brightness: 90%
+                effect: "TwinklingWhite"
+          else:
+            - light.turn_on:
+                id: rgb_light
+                effect: "TwinklingWhite"
+      - if:
+          condition:
+            lambda: 'return !id(logo_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: logo_light
+                brightness: 80%
+                effect: "TwinklingRed"
+          else:
+            - light.turn_on:
+                id: logo_light
+                effect: "TwinklingRed"
       - wifi.disable:           
       - rtttl.play:
           rtttl: !lambda 'return id(song_2).state;'
@@ -289,14 +322,30 @@ script:
 
   - id: play_song_3
     then:
-      - light.turn_on:
-          brightness: 80%
-          id: rgb_light
-          effect: "RedGreen"
-      - light.turn_on:
-          brightness: 60%
-          id: logo_light
-          effect: "RedGreen"
+      - if:
+          condition:
+            lambda: 'return !id(rgb_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: rgb_light
+                brightness: 90%
+                effect: "RedGreen"
+          else:
+            - light.turn_on:
+                id: rgb_light
+                effect: "RedGreen"
+      - if:
+          condition:
+            lambda: 'return !id(logo_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: logo_light
+                brightness: 70%
+                effect: "RedGreen"
+          else:
+            - light.turn_on:
+                id: logo_light
+                effect: "RedGreen"
       - wifi.disable:           
       - rtttl.play:
           rtttl: !lambda 'return id(song_3).state;'
@@ -308,14 +357,30 @@ script:
 
   - id: play_song_4
     then:
-      - light.turn_on:
-          brightness: 80%
-          id: rgb_light
-          effect: "TwinklingBlues"
-      - light.turn_on:
-          brightness: 80%
-          id: logo_light
-          effect: "TwinklingBlues"
+      - if:
+          condition:
+            lambda: 'return !id(rgb_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: rgb_light
+                brightness: 90%
+                effect: "TwinklingBlues"
+          else:
+            - light.turn_on:
+                id: rgb_light
+                effect: "TwinklingBlues"
+      - if:
+          condition:
+            lambda: 'return !id(logo_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: logo_light
+                brightness: 80%
+                effect: "TwinklingBlues"
+          else:
+            - light.turn_on:
+                id: logo_light
+                effect: "TwinklingBlues"
       - wifi.disable: 
       - rtttl.play:
           rtttl: !lambda 'return id(song_4).state;'
@@ -323,8 +388,42 @@ script:
       - delay: 30s
       - light.turn_off: rgb_light
       - light.turn_off: logo_light
-      - script.execute: ShouldSleep  
+      - script.execute: ShouldSleep
 
+  - id: play_song_x
+    then:
+      - if:
+          condition:
+            lambda: 'return !id(rgb_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: rgb_light
+                brightness: 80%
+                effect: "Sandstorm"
+          else:
+            - light.turn_on:
+                id: rgb_light
+                effect: "Sandstorm"
+      - if:
+          condition:
+            lambda: 'return !id(logo_light).remote_values.is_on();'
+          then:
+            - light.turn_on:
+                id: logo_light
+                brightness: 60%
+                effect: "Sandstorm"
+          else:
+            - light.turn_on:
+                id: logo_light
+                effect: "Sandstorm"
+      - wifi.disable:
+      - rtttl.play:
+          rtttl: Sandstorm:d=16,o=6,b=85:e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e, 8e,e,a,e,e,e,e,8e,e,d,e,e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e,8e,e, a,e,e,e,e,8e,e,d,e,e,e,e,e,8e,e,e,a,a,a,a,g,g,g,d,e,e,e,e,8e,e,a,e, e,e,e,8e,e,d,e
+      - wifi.enable:
+      - delay: 30s
+      - light.turn_off: rgb_light
+      - light.turn_off: logo_light
+      - script.execute: ShouldSleep
 
 packages:
   core: !include Core.yaml
