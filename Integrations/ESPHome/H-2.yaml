@@ -249,7 +249,7 @@ script:
           else: 
             - deep_sleep.enter:
                 id: deep_sleep_1
-  - id: !extend play_song_1
+  - id: play_song_1
     then:
       - light.turn_on:
           brightness: 80%
@@ -268,7 +268,7 @@ script:
       - light.turn_off: logo_light
       - script.execute: ShouldSleep
 
-  - id: !extend play_song_2
+  - id: play_song_2
     then:
       - light.turn_on:
           brightness: 80%
@@ -287,7 +287,7 @@ script:
       - light.turn_off: logo_light
       - script.execute: ShouldSleep
 
-  - id: !extend play_song_3
+  - id: play_song_3
     then:
       - light.turn_on:
           brightness: 80%
@@ -306,7 +306,7 @@ script:
       - light.turn_off: logo_light
       - script.execute: ShouldSleep
 
-  - id: !extend play_song_4
+  - id: play_song_4
     then:
       - light.turn_on:
           brightness: 80%
